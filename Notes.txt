@@ -1,0 +1,33 @@
+
+
+NPM- Node Package Manager
+
+Day 3
+Create Folder
+Folder in vscode Npm init
+Tip: Npm init -y
+
+
+npm install express
+    Tip: npm i express
+
+
+Semantic Versioing (SemVer)
+
+1.0.0
+1.0.1
+1.0.9
+1.1.0
+1.1.1
+1.1.9
+1.2.0
+1.9.0
+2.0.0
+major.minor.patch(4.21.2)
+
+
+
+localhost:3000
+127.0.0.1:3000
+[::1]:3000
+
