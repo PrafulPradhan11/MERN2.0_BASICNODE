@@ -61,3 +61,40 @@ npm install monogoose
 FOR POST request
 body>raw>json
 app.use(express.urlencoded({extended : true}))
+
+
+CURD
+
+Create - Done
+Update - findByIdAndUpdate()
+Read - findId() - All
+       findById() For single 
+Delete - findByIdANdDelete()
+
+
+Rest API
+Restful API
+
+
+http://localhost:3000/admin/deletebook/4 
+http://localhost:3000/admin/deletebook/2 ===> admin(for deleting id bok)
+
+---Rest API---
+Get books -> /getAllBooks
+Delete book -> /delete/:id -delete
+Update book -> /update/:id - patch
+Single book -> /single/:id
+Get Author Info -> /author/1
+router.get("/getAllBooks")
+router.get("/single/:id")
+
+
+---Restful API---
+Get Books -> /books -get
+Delete book -> /books/:id - delete
+Update book -> /books/:id - patch
+Single book -> /books/:id - get
+Add book -> /books -post -post
+Get Author info -> /books/author/1
+router.router("/books/:id").patch().delete().get()
+

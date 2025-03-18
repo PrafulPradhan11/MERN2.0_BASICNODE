@@ -3,7 +3,7 @@ const app = express()
 // const app = require('express')()
 
 const connectToDatabase = require('./database')
-const Book =require('./model/bookModel')
+const Book = require('./model/bookModel')
 
 
 app.use(express.json())
@@ -44,26 +44,47 @@ app.get("/book",async(req,res)=>{
 
 //Single read
 app.get("/book/:id",async(req,res)=>{
-    try{
-        const id = req.params.id
-        const book = await Book.findById(id)  //return object garxa
-        if(!book){
-            res.status(404).json({
-                message : "Nothong found"
-            })
-        } else{
-            res.status(200).json({
-                message: "Single Book Ferched Successfully",
-                data : book
-            })
-        }} catch (error){
-            res.status(500).json({
-                message : "Something went wrong"
-            })
-        }
+    const id = req.params.id
+    const book = await Book.findById(id)  //return object garxa
+    if(!book){
+        res.status(404).json({
+            message : "Nothong found"
+        })
+    } else{
+        res.status(200).json({
+            message: "Single Book Ferched Successfully",
+            data : book
+        })
+    }
 })
 
+//delete operation
+// app.get("/deletebook/:id", async (req,res)=>{
+app.delete("/book/:id", async (req,res)=>{
+    const id = req.params.id
+    await Book.findByIdAndDelete(id)
+    res.status(200).json({
+        message : "Book Deleted Sucessfully"
+    })
+})
 
+//update opertaion
+app.patch("/book/:id", async (req,res)=>{
+    const id = req.params.id // kun book update garney id ho yo
+    const {bookName,bookPrice,authorName,isbnNumber,publishedAt,publication} = req.body
+    await Book.findByIdAndUpdate(id,{
+        bookName : bookName,
+        bookPrice : bookPrice,
+        authorName : authorName,
+        isbnNumber : isbnNumber,
+        publication: publication,
+        publishedAt : publishedAt
+    })
+    res.status(200).json({
+        message : "Book Updated Sucessfully"
+    })
+
+})
 
 
  app.listen(3000,() =>{

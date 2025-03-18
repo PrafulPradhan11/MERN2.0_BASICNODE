@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const bookSchema = new Schema({
     bookName:{
         type: String,
-        unique : true
+        unique : true,
     },
     bookPrice:{
         type: Number
@@ -22,7 +22,6 @@ const bookSchema = new Schema({
         type: String
     }
 })
-
 
 const Book = mongoose.model('Book',bookSchema)
 module.exports = Book
