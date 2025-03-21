@@ -98,3 +98,6 @@ Add book -> /books -post -post
 Get Author info -> /books/author/1
 router.router("/books/:id").patch().delete().get()
 
+
+---Install the middleware multer---
+npm i multer
