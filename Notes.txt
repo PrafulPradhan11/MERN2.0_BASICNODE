@@ -101,3 +101,17 @@ router.router("/books/:id").patch().delete().get()
 
 ---Install the middleware multer---
 npm i multer
+
+
+
+-------------------------------------------------
+
+React 
+ Diffing- The process of seeing the difference in two Virtual Document Object Model(VDOM)
+ Reconciliation-The process of keeping the result of diffing in DOM
+
+ Garbage Collector removes the VDOM which is not used for longer period of time or the coopy of 1 and second VDom after 3-4 Vdpm arrives. 
+ This will be automatic system but it can be made as function.
+
+ Install Cors
+    npm install cors - for the Cross site access
