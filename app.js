@@ -12,13 +12,13 @@ const upload = multer({storage: storage})
 //ccors package
 const cors = require('cors')
 
-app.use(cors({
-    origin: "*"
-  }))
-//   app.use(cors({
-//     origin: 'https://mern-2-0-lms-react-bice.vercel.app', // your frontend domain
-//     credentials: true
-// }));
+// app.use(cors({
+//     origin: "*"
+//   }))
+  app.use(cors({
+    origin: 'https://mern-2-0-lms-react-bice.vercel.app', // your frontend domain
+    credentials: true
+}));
 
 
 app.use(express.json())
