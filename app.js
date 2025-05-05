@@ -12,13 +12,13 @@ const upload = multer({storage: storage})
 //ccors package
 const cors = require('cors')
 
-// app.use(cors({
-//     origin: '*'
-//   }))
-  app.use(cors({
-    origin: 'https://mern-2-0-lms-react-bice.vercel.app', // your frontend domain
-    credentials: true
-}));
+app.use(cors({
+    origin: "*"
+  }))
+//   app.use(cors({
+//     origin: 'https://mern-2-0-lms-react-bice.vercel.app', // your frontend domain
+//     credentials: true
+// }));
 
 
 app.use(express.json())
@@ -41,7 +41,7 @@ app.post("/book",upload.single('image'),async(req,res)=>{
     if(!req.file){
         fileName = "https://cdn.vectorstock.com/i/500p/73/69/anonymous-male-profile-picture-emotion-avatar-vector-15887369.jpg"
     } else {
-        fileName = "https://mern2-0-basicnode-7zq5.onrender.com/" + req.file.filename
+        fileName = "http://localhost:3000/" + req.file.filename
     }
   const {bookName,bookPrice,isbnNumber,authorName,publishedAt,publication} = req.body
    await  Book.create({
@@ -105,7 +105,7 @@ app.patch("/book/:id",upload.single('image'),async (req,res)=>{
 
         const oldImagePath = oldDatas.imageUrl
         console.log(oldImagePath)
-        const localHostUrlLength = "https://mern2-0-basicnode-7zq5.onrender.com/".length
+        const localHostUrlLength = "http://localhost:3000/".length
         const newOldImagePath = oldImagePath.slice(localHostUrlLength)
         console.log(newOldImagePath)
         fs.unlink(`storage/${newOldImagePath}`, (err) => {
@@ -115,7 +115,7 @@ app.patch("/book/:id",upload.single('image'),async (req,res)=>{
                 console.log("File Deleted Successfully")
             }
         })
-        fileName = "https://mern2-0-basicnode-7zq5.onrender.com/" + req.file.filename
+        fileName = "http://localhost:3000/" + req.file.filename
     }
     await Book.findByIdAndUpdate(id,{
         bookName : bookName,
